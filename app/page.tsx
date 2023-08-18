@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 // import required modules
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
-import Navbar from '@/components/navbar';
+import Navbar from '../components/navbar';
 
 // https://diandracreative.com/troli/
 // https://swiperjs.com/swiper-api#pagination
