@@ -22,7 +22,6 @@ export default function Home() {
     console.log('Belanja Hovered', belanjaHovered)
   }, [belanjaHovered])
 
-
   return (
     <div className="w-full">
       <nav
@@ -61,10 +60,9 @@ export default function Home() {
       {/* <div className="bg-fixed ..." style={{["background-image" as any]: "url(/images/printer-bg.jpg)"}}></div> */}
 
       <Swiper
-        effect='fade'
         navigation
         pagination={{ clickable: true }}
-        modules={[Autoplay, EffectFade, Navigation, Pagination]}
+        modules={[Autoplay, Navigation, Pagination]}
         // className="mySwiper"
         // spaceBetween={50}
         // slidesPerView={3}
@@ -76,7 +74,16 @@ export default function Home() {
         onSwiper={(swiper) => console.log(swiper)}
         className='h-screen bg-red-400'
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <div>Quality</div>
+            <div>We use High Quality printing presses for high quality product</div>
+            <div>
+              <div>Whatsapp</div>
+              <div>Detail</div>
+            </div>
+          </div>
+        </SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>

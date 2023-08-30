@@ -8,6 +8,27 @@ const Navbar = () => {
   const listStyleScroll = 'flex text-blue-600 hover:ease-in duration-300 hover:cursor-pointer m-4 items-center'
   const [isAboutVisible, setIsAboutVisible] = useState(false);
   const [isContactVisible, setIsContactVisible] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
+  const navOpacity = Math.min(1, scrollPosition / 200);
+
+  // const listStyle = 'hover:text-blue-600 hover:ease-in duration-400 hover:cursor-pointer'
+  // const navStyle = `fixed top-0 w-full items-center h-20 bg-white transition-opacity duration-300 ${
+  //   navOpacity < 1 ? 'opacity-' + (navOpacity * 100) : 'opacity-100'}`
+  const navStyle = "flex w-full items-center h-20 sticky top-0 z-50"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,7 +67,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className='flex w-full items-center h-20 sticky top-0 z-50'>
+    <div className={navStyle}>
       <div className='flex items-center justify-center h-full bg-blue-400 px-4'>
         <Image
           className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
